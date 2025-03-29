@@ -21,10 +21,24 @@ def main():
                 with st.spinner('Generating report... This may take a few minutes...'):
                     report, citations = generator.generate_report(stock, report=True)
                     print(report)
-                st.subheader("Full Report")
-                st.markdown(report)
-                st.subheader("Citations:")
-                st.write(citations)
+                
+                st.success("Report generated successfully!")
+                
+                # Create a container for the report
+                with st.container():
+                    st.subheader("Full Report")
+                    st.markdown("---")  # Horizontal line for visual separation
+                    st.markdown(report)
+                    # Add download button for the report
+                    st.download_button(
+                        label="Download Report",
+                        data=report,
+                        file_name=f"{stock}_report_{date.today()}.txt",
+                        mime="text/plain"
+                    )
+                    st.markdown("---")
+                    st.subheader("Citations:")
+                    st.write(citations)
 
             except Exception as e:
                 st.error(f"Error generating report: {str(e)}")
