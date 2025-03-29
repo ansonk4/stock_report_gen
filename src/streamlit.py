@@ -1,6 +1,5 @@
 from datetime import date
 import streamlit as st
-import get_price
 from report_generate import Config, ReportGenerator
 
 def main():

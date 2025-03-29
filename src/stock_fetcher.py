@@ -4,6 +4,26 @@ from datetime import datetime, timedelta
 import yfinance as yf
 import os
 
+def get_last_week_prices(ticker):
+    # Calculate the date range for the last week
+    start_date = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+    end_date = datetime.now().strftime('%Y-%m-%d')
+    
+    # Fetch historical data
+    stock = yf.Ticker(ticker)
+    hist = stock.history(start=start_date, end=end_date)
+
+    if hist.empty:
+        print(f"No data found for ticker {ticker} in the last week.")
+        return
+
+    price_str = ""
+
+    for date, row in hist.iterrows():
+        price_str += f"Date: {date.strftime('%Y-%m-%d')}, Open: {row['Open']:.2f}, Close: {row['Close']:.2f} \n"
+    
+    return price_str
+
 def get_news_from_newsapi(ticker, api_key, days_back=7, language='en'):
     """
     Fetch news for a stock ticker using NewsAPI
@@ -107,9 +127,7 @@ if __name__ == "__main__":
     NEWSAPI_KEY = None   # Get from https://newsapi.org/
     USE_YFINANCE = True                      # Set to True to only use Yahoo Finance
     
-
     # news_df = get_news_from_newsapi('TSLA', NEWSAPI_KEY)
-    # print(news_df)
 
     # Get news
     news_data = get_stock_news(

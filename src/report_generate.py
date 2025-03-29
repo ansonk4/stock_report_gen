@@ -3,8 +3,7 @@ from datetime import date
 from dataclasses import dataclass
 from typing import List
 from openai import OpenAI
-import news
-import get_price
+from stock_fetcher import get_last_week_prices, get_news_from_yfinance
 from dotenv import load_dotenv
 
 @dataclass
@@ -72,8 +71,8 @@ class ReportGenerator:
     def generate_report(self, stock: str, report=True) -> str:
         """Generate a complete stock report"""
         # Fetch data
-        news_data = news.get_news_from_yfinance(stock)
-        price_data = get_price.get_last_week_prices(stock)
+        news_data = get_news_from_yfinance(stock)
+        price_data = get_last_week_prices(stock)
 
         # Format news data
         formatted_news, citations = NewsFormatter.format_news_items(news_data)
