@@ -4,9 +4,9 @@ from report_generate import Config, ReportGenerator
 import os
 
 def main():
-    st.write(st.secrets)
-    # os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
-    # os.environ["NEWSAPI_KEY"] == st.secrets["NEWSAPI_KEY"]
+
+    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
+    os.environ["NEWSAPI_KEY"] == st.secrets["NEWSAPI_KEY"]
 
     st.title("Stock News Report Generator")
     
