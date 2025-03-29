@@ -18,8 +18,9 @@ def main():
     if st.button("Generate Report"):
         if stock:
             try:
-                report, citations = generator.generate_report(stock, report=True)
-                print(report)
+                with st.spinner('Generating report... This may take a few minutes...'):
+                    report, citations = generator.generate_report(stock, report=True)
+                    print(report)
                 st.subheader("Full Report")
                 st.markdown(report)
                 st.subheader("Citations:")
