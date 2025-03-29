@@ -3,6 +3,9 @@ import streamlit as st
 from report_generate import Config, ReportGenerator
 
 def main():
+    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
+    os.environ["NEWSAPI_KEY"] == st.secrets["NEWSAPI_KEY"]
+
     st.title("Stock News Report Generator")
     
     stock = st.text_input("Enter Stock Ticker (e.g., AAPL, JPM):")
