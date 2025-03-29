@@ -5,6 +5,7 @@
 This system consists of two main components:
 1. **Stock Price Tracker**: A Python script that tracks the price of a stock in real-time and sends desktop notifications when significant price changes occur.
 2. **Streamlit News Report Generator**: A Streamlit-based web application that searches for recent news about a stock and generates a detailed report using AI.
+[Try the Streamlit App here!](https://stockreportgen.streamlit.app/)
 
 ![streamlit News Report Generator](img/Screenshot%202025-03-28%20at%2011.40.09 PM.jpg)
 
