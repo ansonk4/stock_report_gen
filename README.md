@@ -69,9 +69,3 @@ The Streamlit app allows users to input a stock ticker symbol and generates a de
 - **NewsAPI Key**: Required for fetching news articles.
 
 Add your API keys to the `Config` class in `report_generate.py`.
-
----
-
-## Notes
-- Ensure you have a stable internet connection for real-time price tracking and news fetching.
-- The system is designed for educational purposes and may require further customization for production use.
