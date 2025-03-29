@@ -1,6 +1,7 @@
 from datetime import date
 import streamlit as st
 from report_generate import Config, ReportGenerator
+import os
 
 def main():
     os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
